@@ -1,0 +1,4 @@
+%section.ui-index
+  %ul
+    - @videos.each do |video|
+      %li= link_to video.title.titleize, video_path(video)
