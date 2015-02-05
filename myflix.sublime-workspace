@@ -1,0 +1,304 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"grade",
+				"grades"
+			],
+			[
+				"post",
+				"post_total_votes_"
+			],
+			[
+				"votes",
+				"votes_down"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"",
+				"Snippet: map { |e| .. }"
+			]
+		],
+		"width": 530.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/creid/work/level_up_exercises/dino_catalog/dino_catalog.rb",
+		"/Users/creid/Desktop/test.rb",
+		"/Users/creid/work/postit/app/controllers/sessions_controller.rb",
+		"/Users/creid/work/postit/config/routes.rb",
+		"/Users/creid/work/postit/app/controllers/posts_controller.rb",
+		"/Users/creid/work/postit/app/controllers/users_controller.rb",
+		"/Users/creid/work/postit/app/views/users/_form.html.erb",
+		"/Users/creid/work/postit/db/migrate/20141120180108_add_phone_and_pin_to_users.rb",
+		"/Users/creid/work/postit/app/views/posts/show.html.erb",
+		"/Users/creid/work/postit/app/controllers/categories_controller.rb",
+		"/Users/creid/work/postit/app/controllers/application_controller.rb",
+		"/Users/creid/work/postit/app/models/post.rb",
+		"/Users/creid/work/postit/app/views/layouts/_navigation.html.erb",
+		"/Users/creid/work/postit/lib/sluggable.rb",
+		"/Users/creid/work/postit/db/migrate/20141105204430_add_role_to_users.rb",
+		"/Users/creid/work/postit/app/models/category.rb",
+		"/Users/creid/work/postit/app/models/comment.rb",
+		"/Users/creid/work/postit/config/application.rb",
+		"/Users/creid/work/postit/Gemfile",
+		"/Users/creid/work/postit/db/migrate/20141105204430_add_admin_to_users.rb",
+		"/Users/creid/work/postit/app/models/vote.rb",
+		"/Users/creid/work/postit/lib/voteable.rb",
+		"/Users/creid/work/postit/app/views/posts/_post.html.erb",
+		"/Users/creid/work/postit/app/views/posts/vote.js.erb",
+		"/Users/creid/work/postit/app/controllers/comments_controller.rb",
+		"/Users/creid/work/postit/db/migrate/20141029001225_add_slugs_to_posts.rb",
+		"/Users/creid/work/postit/db/migrate/20140825193207_add_timestamps_to_posts.rb",
+		"/Users/creid/work/postit/db/migrate/20141029044749_add_slugs_to_users.rb",
+		"/Users/creid/work/postit/db/migrate/20141029044804_add_slugs_to_categories.rb",
+		"/Users/creid/work/postit/db/migrate/20141029001049_add_slug_to_posts.rb",
+		"/Users/creid/work/postit/db/migrate/20140827194529_create_post_categories.rb",
+		"/Users/creid/work/postit/app/views/comments/vote.js.erb",
+		"/Users/creid/work/postit/app/views/comments/_comment.html.erb",
+		"/Users/creid/work/postit/Gemfile.lock",
+		"/Users/creid/work/postit/app/models/user.rb",
+		"/Users/creid/work/postit/db/migrate/20141008171407_add_timestamps_to_votes.rb",
+		"/Users/creid/work/postit/db/migrate/20141008045721_create_votes.rb",
+		"/Users/creid/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/creid/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Users/creid/work/app-appzone/recipes/app.rb"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"changed",
+			"== ",
+			"is_sorted2",
+			"json",
+			"admin",
+			"post_total_votes_<%= post.id %>",
+			"vote_post_comment_path(comment.post, comment,",
+			"vote_post_comment_path"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"appli",
+				"config/application.yml"
+			],
+			[
+				"sess",
+				"app/controllers/sessions_controller.rb"
+			],
+			[
+				"postform",
+				"app/views/posts/_form.html.erb"
+			],
+			[
+				"post",
+				"app/controllers/posts_controller.rb"
+			],
+			[
+				"rou",
+				"config/routes.rb"
+			],
+			[
+				"user",
+				"app/models/user.rb"
+			],
+			[
+				"db/phone",
+				"db/migrate/20141120180108_add_phone_and_pin_to_users.rb"
+			],
+			[
+				"nav",
+				"app/views/layouts/_navigation.html.erb"
+			],
+			[
+				"vote",
+				"app/models/vote.rb"
+			],
+			[
+				"comm",
+				"app/models/comment.rb"
+			],
+			[
+				"appl",
+				"config/application.rb"
+			],
+			[
+				"cate",
+				"app/models/category.rb"
+			],
+			[
+				"vot",
+				"lib/voteable.rb"
+			],
+			[
+				"modeus",
+				"app/models/user.rb"
+			],
+			[
+				"modecat",
+				"app/models/category.rb"
+			],
+			[
+				"cont",
+				"app/controllers/categories_controller.rb"
+			],
+			[
+				"migrsl",
+				"db/migrate/20141029044804_add_slugs_to_categories.rb"
+			],
+			[
+				"postsh",
+				"app/views/posts/show.html.erb"
+			],
+			[
+				"applicationcon",
+				"app/controllers/application_controller.rb"
+			],
+			[
+				"_comm",
+				"app/views/comments/_comment.html.erb"
+			],
+			[
+				"commen",
+				"app/models/comment.rb"
+			],
+			[
+				"app",
+				"app/controllers/application_controller.rb"
+			],
+			[
+				"routes",
+				"config/routes.rb"
+			],
+			[
+				"migratetime",
+				"db/migrate/20140825193207_add_timestamps_to_posts.rb"
+			],
+			[
+				"comme",
+				"app/controllers/comments_controller.rb"
+			],
+			[
+				"create_vot",
+				"db/migrate/20141008045721_create_votes.rb"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 233.0,
+	"status_bar_visible": true
+}
