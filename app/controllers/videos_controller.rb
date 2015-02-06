@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-  #before_action :set_video, only: [:show]
+  before_action :set_video, only: [:show]
 
   def index
     @videos = Video.all
