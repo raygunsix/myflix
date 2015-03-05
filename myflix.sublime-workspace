@@ -48,6 +48,15 @@
 	},
 	"file_history":
 	[
+		"/Users/creid/work/myflix/db/schema.rb",
+		"/Users/creid/work/myflix/db/migrate/20150208233014_add_category_to_video.rb",
+		"/Users/creid/work/myflix/app/models/category.rb",
+		"/Users/creid/work/myflix/app/models/video.rb",
+		"/Users/creid/work/myflix/db/migrate/20150208232822_add_video_to_category.rb",
+		"/Users/creid/work/myflix/db/migrate/20150208225310_create_categories.rb",
+		"/Users/creid/work/myflix/db/migrate/20150208230019_add_timestamps_to_categories.rb",
+		"/Users/creid/work/myflix/db/migrate/20150208230249_add_timestamps_to_videos.rb",
+		"/Users/creid/work/myflix/config/database.yml",
 		"/Users/creid/work/level_up_exercises/dino_catalog/dino_catalog.rb",
 		"/Users/creid/Desktop/test.rb",
 		"/Users/creid/work/postit/app/controllers/sessions_controller.rb",
@@ -105,6 +114,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"category",
 			"changed",
 			"== ",
 			"is_sorted2",
@@ -181,6 +191,42 @@
 		"selected_items":
 		[
 			[
+				"schem",
+				"db/schema.rb"
+			],
+			[
+				"addca",
+				"db/migrate/20150208233014_add_category_to_video.rb"
+			],
+			[
+				"addvido",
+				"db/migrate/20150208232822_add_video_to_category.rb"
+			],
+			[
+				"addtime",
+				"db/migrate/20150208230249_add_timestamps_to_videos.rb"
+			],
+			[
+				"time",
+				"db/migrate/20150208230019_add_timestamps_to_categories.rb"
+			],
+			[
+				"cate",
+				"app/models/category.rb"
+			],
+			[
+				"create",
+				"db/migrate/20150208225310_create_categories.rb"
+			],
+			[
+				"vido",
+				"app/models/video.rb"
+			],
+			[
+				"datab",
+				"config/database.yml"
+			],
+			[
 				"appli",
 				"config/application.yml"
 			],
@@ -223,10 +269,6 @@
 			[
 				"appl",
 				"config/application.rb"
-			],
-			[
-				"cate",
-				"app/models/category.rb"
 			],
 			[
 				"vot",
