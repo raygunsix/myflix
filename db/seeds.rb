@@ -6,7 +6,26 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Video.create(title: 'Family Guy', description: 'Pizza boy Philip J. Fry awakens in the 31st century after 1,000 years of cryogenic preservation in this animated series. After he gets a job at an interplanetary delivery service, Fry embarks on ridiculous escapades to make sense of his predicament.', small_cover_url: '', large_cover_url: '')
-Video.create(title: 'Futurama', description: 'Another funny show. Please insert girder.', small_cover_url: '', large_cover_url: '')
-Video.create(title: 'Monk', description: 'Never watched this one.', small_cover_url: '', large_cover_url: '')
-Video.create(title: 'South Park', description: 'Is this show still on?', small_cover_url: '', large_cover_url: '')
+Category.create(name: "TV Comedies")
+Category.create(name: "TV Dramas")
+
+Video.create(title: 'Family Guy',
+  description: 'Pizza boy Philip J. Fry awakens in the 31st century after 1,000 years of cryogenic preservation in this animated series. After he gets a job at an interplanetary delivery service, Fry embarks on ridiculous escapades to make sense of his predicament.',
+  small_cover_url: '',
+  large_cover_url: '',
+  category: Category.find(1))
+Video.create(title: 'Futurama',
+  description: 'Another funny show. Please insert girder.',
+  small_cover_url: '',
+  large_cover_url: '',
+  category: Category.find(2))
+Video.create(title: 'Monk',
+  description: 'Never watched this one.',
+  small_cover_url: '',
+  large_cover_url: '',
+  category: Category.find(2))
+Video.create(title: 'South Park',
+  description: 'Is this show still on?',
+  small_cover_url: '',
+  large_cover_url: '',
+  category: Category.find(1))
