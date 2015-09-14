@@ -6,7 +6,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(post_params)
-    binding.pry
     if @user.save
       flash[:notice] = 'You have successfully regsitered!'
       redirect_to sign_in_path
