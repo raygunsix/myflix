@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     binding.pry
     if @user.save
       flash[:notice] = 'You have successfully regsitered!'
-      redirect_to home_path
+      redirect_to sign_in_path
     else
       render 'new'
     end
