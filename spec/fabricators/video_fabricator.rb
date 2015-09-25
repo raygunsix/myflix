@@ -1,5 +1,5 @@
 Fabricator(:video) do
-  title { 'Family Guy' }
-  description { 'A funny show' }
+  title { Faker::Lorem.words(3).join(" ") }
+  description { Faker::Lorem.words(12).join(" ") }
 end
 

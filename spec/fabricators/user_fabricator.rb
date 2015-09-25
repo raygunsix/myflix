@@ -1,5 +1,5 @@
 Fabricator(:user) do
-  email { 'bob@example.com' }
-  password { 'test' }
-  full_name { 'Bob McKenzie'}
+  email { Faker::Internet.email }
+  password { Faker::Lorem.words(1) }
+  full_name { Faker::Name.name }
 end
