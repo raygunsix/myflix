@@ -5,7 +5,7 @@ describe VideosController do
   before(:each) do
     user = User.create(email: 'testxx@example.com', password: 'test', full_name: 'Bob')
     session[:user_id] = user.id
-    @family_guy = Video.create(title: 'Family Guy', description: 'A funny show')
+    @family_guy = Fabricate(:video)
   end
 
   describe 'GET show' do
