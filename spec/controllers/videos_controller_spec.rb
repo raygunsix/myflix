@@ -1,9 +1,8 @@
 require 'spec_helper'
 
 describe VideosController do
-
   before(:each) do
-    user = User.create(email: 'testxx@example.com', password: 'test', full_name: 'Bob')
+    user = Fabricate(:user)
     session[:user_id] = user.id
     @family_guy = Fabricate(:video)
   end
