@@ -2,8 +2,7 @@ require 'spec_helper'
 
 describe VideosController do
   before(:each) do
-    user = Fabricate(:user)
-    session[:user_id] = user.id
+    session[:user_id] = Fabricate(:user).id
   end
 
   describe 'GET show' do
