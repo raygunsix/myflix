@@ -24,7 +24,7 @@ describe Category do
       comedies.recent_videos.length.should == 6
     end
 
-    it "returns an empty array if there are now videos" do
+    it "returns an empty array if there are no videos" do
       comedies.recent_videos.should == []
     end
   end
