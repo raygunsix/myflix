@@ -20,7 +20,7 @@ describe Category do
     end
 
     it "returns no more than six videos" do
-      7.times { Video.create(title: "Family Guy", description: "Funny Show", category: comedies) }
+      7.times { Fabricate(:video, category: comedies) }
       comedies.recent_videos.length.should == 6
     end
 
