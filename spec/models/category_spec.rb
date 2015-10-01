@@ -8,8 +8,8 @@ describe Category do
     let(:comedies) { Fabricate(:category) }
 
     it "returns most recently created videos first" do
-      family_guy = Video.create(title: "Family Guy", description: "Funny Show", category: comedies)
-      family_ties = Video.create(title: "Family Ties", description: "Funny Show", category: comedies, created_at: 1.day.ago)
+      family_guy = Fabricate(:video, category: comedies)
+      family_ties = Fabricate(:video, category: comedies, created_at: 1.day.ago)
       comedies.recent_videos.first.created_at.should > comedies.recent_videos.last.created_at
     end
 
