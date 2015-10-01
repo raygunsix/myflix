@@ -14,8 +14,8 @@ describe Category do
     end
 
     it "returns only the most recent videos" do
-      6.times { Video.create(title: "Family Guy", description: "Funny Show", category: comedies) }
-      old_show = Video.create(title: "Leave it to Beaver", description: "Not a Funny Show", category: comedies, created_at: 1.day.ago)
+      6.times { Fabricate(:video, category: comedies) }
+      old_show = Fabricate(:video, category: comedies, created_at: 1.day.ago)
       comedies.recent_videos.should_not include(old_show)
     end
 
