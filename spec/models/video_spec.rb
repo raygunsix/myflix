@@ -8,7 +8,7 @@ describe Video do
 
   describe "search by title" do
     let!(:family_guy) { Fabricate(:video, title: 'Family Guy')}
-    let(:family_ties) { Fabricate(:video, title: 'Family Ties')}
+    let(:family_ties) { Fabricate(:video, title: 'Family Ties') }
 
     it "returns an empty array if there is no match" do
       Video.search_by_title("Star Wars").should == []
