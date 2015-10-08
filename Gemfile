@@ -28,7 +28,7 @@ end
 
 group :test do
   gem 'database_cleaner', '1.2.0'
-  gem 'shoulda-matchers', require: false
+  gem 'shoulda-matchers', '~> 2.8.0', require: false
 end
 
 group :production do
