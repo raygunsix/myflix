@@ -13,28 +13,26 @@ describe UsersController do
 
     context 'with valid params' do
       let(:user) { Fabricate.attributes_for(:user) }
+      before { post :create, user: user }
 
       it 'creates the user' do
-        post :create, user: user
         User.first.email.should == user['email']
       end
 
       it 'redirects to the sign in page' do
-        post :create, user: user
         response.should redirect_to sign_in_path
       end
     end
 
     context "with invalid params" do
       let(:user) { Fabricate.attributes_for(:user, email: nil) }
+      before { post :create, user: user }
 
       it 'does not create the user' do
-        post :create, user: user
         User.first.should be_nil
       end
 
       it 'redirects to the new user page' do
-        post :create, user: user
         response.should render_template :new
       end
     end
