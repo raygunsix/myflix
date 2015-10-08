@@ -7,23 +7,23 @@ describe Video do
   it { should validate_presence_of(:description) }
 
   describe "search by title" do
-    let!(:family_guy) { Fabricate(:video, title: 'Family Guy')}
-    let(:family_ties) { Fabricate(:video, title: 'Family Ties') }
+    let!(:empire) { Fabricate(:video, title: 'Star Wars: Empire Strikes Back')}
+    let!(:rotj) { Fabricate(:video, title: 'Star Wars: Return of the Jedi') }
 
     it "returns an empty array if there is no match" do
-      Video.search_by_title("Star Wars").should == []
+      Video.search_by_title("Star Wars: A New Hope").should == []
     end
 
     it "returns an array of one video for an exact match" do
-      Video.search_by_title("Family Guy").length.should == 1
+      Video.search_by_title("Star Wars: Empire Strikes Back").length.should == 1
     end
 
-    it "returns an array of one video for a partial match" do
-      Video.search_by_title("Fam").length.should == 1
+    it "returns an array of two videos for a partial match" do
+      Video.search_by_title("Star").length.should == 2
     end
 
     it "returns an array of all matches ordered by created_at" do
-      Video.search_by_title("Fam").should match_array([family_ties, family_guy])
+      Video.search_by_title("Star").should match_array([rotj, empire])
     end
   end
 end
