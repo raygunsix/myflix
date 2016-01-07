@@ -9,7 +9,7 @@
 Category.create(name: "TV Comedies")
 Category.create(name: "TV Dramas")
 
-Video.create(title: 'Family Guy',
+family_guy = Video.create(title: 'Family Guy',
   description: 'Pizza boy Philip J. Fry awakens in the 31st century after 1,000 years of cryogenic preservation in this animated series. After he gets a job at an interplanetary delivery service, Fry embarks on ridiculous escapades to make sense of his predicament.',
   small_cover_url: '',
   large_cover_url: '',
@@ -54,3 +54,8 @@ Video.create(title: 'South Park',
   small_cover_url: '',
   large_cover_url: '',
   category: Category.find(1))
+
+bob = User.create(full_name: 'bob', password: 'bob', email: 'bob@bob.com')
+
+Review.create(user: bob, video: family_guy, rating: 5, content: 'This is a really great movie!')
+Review.create(user: bob, video: family_guy, rating: 1, content: 'This is a really terrible movie!')
