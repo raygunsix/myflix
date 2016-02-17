@@ -17,4 +17,55 @@ describe QueueItemsController do
     end
   end
 
+  describe 'POST create' do
+    it 'redirects to the my queue page' do
+      session[:user_id] = Fabricate(:user).id
+      video = Fabricate(:video)
+      post :create, video_id: video.id
+      response.should redirect_to my_queue_path
+    end
+    it 'creates a queue item' do
+      session[:user_id] = Fabricate(:user).id
+      video = Fabricate(:video)
+      post :create, video_id: video.id
+      QueueItem.count.should == 1
+    end
+    it 'creates the queue item that is associated with the video' do
+      session[:user_id] = Fabricate(:user).id
+      video = Fabricate(:video)
+      post :create, video_id: video.id
+      QueueItem.first.video.should == video
+    end
+    it 'creates the queue item that is associated with the signed in user' do
+      alice = Fabricate(:user)
+      session[:user_id] = alice.id
+      video = Fabricate(:video)
+      post :create, video_id: video.id
+      QueueItem.first.user.should == alice
+    end
+    it 'adds the video as the last item in the queue' do
+      alice = Fabricate(:user)
+      monk = Fabricate(:video)
+      south_park = Fabricate(:video)
+      session[:user_id] = alice.id
+      Fabricate(:queue_item, video: monk, user: alice)
+      post :create, video_id: south_park.id
+      south_park_queue_item = QueueItem.where(video_id: south_park.id, user_id: alice.id).first
+      south_park_queue_item.position.should == 2
+    end
+    it 'does not add the video to the queue twice' do
+      alice = Fabricate(:user)
+      monk = Fabricate(:video)
+      session[:user_id] = alice.id
+      Fabricate(:queue_item, video: monk, user: alice)
+      post :create, video_id: monk.id
+      alice.queue_items.count.should == 1
+    end
+
+    it 'redirects unauthenticated users to the sign in page' do
+      post :create, video_id: 3
+      response.should redirect_to sign_in_path
+    end
+  end
+
 end
