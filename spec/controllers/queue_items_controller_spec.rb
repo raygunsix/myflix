@@ -68,4 +68,32 @@ describe QueueItemsController do
     end
   end
 
+  describe 'DELETE destroy' do
+    it 'redirects to the my queue page' do
+      session[:user_id] = Fabricate(:user)
+      queue_item = Fabricate(:queue_item)
+      delete :destroy, id: queue_item.id
+      response.should redirect_to my_queue_path
+    end
+    it 'deletes the queue item' do
+      alice = Fabricate(:user)
+      queue_item = Fabricate(:queue_item, user: alice)
+      session[:user_id] = alice.id
+      delete :destroy, id: queue_item.id
+      QueueItem.count.should == 0
+    end
+    it 'only deletes the queue item if it is owned by the current_user' do
+      alice = Fabricate(:user)
+      bob = Fabricate(:user)
+      session[:user_id] = alice.id
+      queue_item = Fabricate(:queue_item, user: bob)
+      delete :destroy, id: queue_item.id
+      QueueItem.count.should == 1
+    end
+    it 'redirects to the sign in page if the user is unauthenticated' do
+      post :destroy, id: 3
+      response.should redirect_to sign_in_path
+    end
+  end
+
 end
