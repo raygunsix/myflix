@@ -130,33 +130,30 @@ describe QueueItemsController do
         alice.queue_items.map(&:position).should == [1,2]
       end
     end
+
     context 'without valid inputs' do
+
+      let(:alice) { Fabricate(:user) }
+      let(:queue_item1) { Fabricate(:queue_item, position: 1, user: alice) }
+      let(:queue_item2) { Fabricate(:queue_item, position: 2, user: alice) }
+
+      before { session[:user_id] = alice.id }
+
       it 'redirects to my queue page' do
-        alice = Fabricate(:user)
-        session[:user_id] = alice.id
-        queue_item1 = Fabricate(:queue_item, position: 1, user: alice)
-        queue_item2 = Fabricate(:queue_item, position: 2, user: alice)
         post :update_queue, queue_items: [{id: queue_item1.id, position: 3.4},{id: queue_item2.id, position: 2}]
         response.should redirect_to my_queue_path
       end
       it 'sets the flash error message' do
-        alice = Fabricate(:user)
-        session[:user_id] = alice.id
-        queue_item1 = Fabricate(:queue_item, position: 1, user: alice)
-        queue_item2 = Fabricate(:queue_item, position: 2, user: alice)
         post :update_queue, queue_items: [{id: queue_item1.id, position: 3.4},{id: queue_item2.id, position: 2}]
         flash[:error].should_not be_nil
       end
 
       it 'does not change the queue items' do
-        alice = Fabricate(:user)
-        session[:user_id] = alice.id
-        queue_item1 = Fabricate(:queue_item, position: 1, user: alice)
-        queue_item2 = Fabricate(:queue_item, position: 2, user: alice)
         post :update_queue, queue_items: [{id: queue_item1.id, position: 3},{id: queue_item2.id, position: 2.1}]
         queue_item1.reload.position.should == 1
       end
     end
+
     context 'with unauthenticated user' do
       it 'redirects to the sign in path' do
         post :update_queue, queue_items: [{id: 1, position: 3},{id: 2, position: 2}]
