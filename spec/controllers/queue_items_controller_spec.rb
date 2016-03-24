@@ -112,8 +112,9 @@ describe QueueItemsController do
     context 'with valid inputs' do
 
       let(:alice) { Fabricate(:user) }
-      let(:queue_item1) { Fabricate(:queue_item, position: 1, user: alice) }
-      let(:queue_item2) { Fabricate(:queue_item, position: 2, user: alice) }
+      let(:video) { Fabricate(:video) }
+      let(:queue_item1) { Fabricate(:queue_item, position: 1, user: alice, video: video) }
+      let(:queue_item2) { Fabricate(:queue_item, position: 2, user: alice, video: video) }
 
       before { session[:user_id] = alice.id }
 
@@ -134,8 +135,9 @@ describe QueueItemsController do
     context 'without valid inputs' do
 
       let(:alice) { Fabricate(:user) }
-      let(:queue_item1) { Fabricate(:queue_item, position: 1, user: alice) }
-      let(:queue_item2) { Fabricate(:queue_item, position: 2, user: alice) }
+      let(:video) { Fabricate(:video) }
+      let(:queue_item1) { Fabricate(:queue_item, position: 1, user: alice, video: video) }
+      let(:queue_item2) { Fabricate(:queue_item, position: 2, user: alice, video: video) }
 
       before { session[:user_id] = alice.id }
 
@@ -165,9 +167,10 @@ describe QueueItemsController do
       it 'does not change the queue items' do
         alice = Fabricate(:user)
         bob = Fabricate(:user)
+        video = Fabricate(:video)
         session[:user_id] = alice.id
-        queue_item1 = Fabricate(:queue_item, position: 1, user: bob)
-        queue_item2 = Fabricate(:queue_item, position: 2, user: alice)
+        queue_item1 = Fabricate(:queue_item, position: 1, user: bob, video: video)
+        queue_item2 = Fabricate(:queue_item, position: 2, user: alice, video: video)
         post :update_queue, queue_items: [{id: queue_item1.id, position: 3},{id: queue_item2.id, position: 2}]
         queue_item1.reload.position.should == 1
       end
