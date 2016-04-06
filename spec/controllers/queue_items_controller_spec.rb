@@ -4,16 +4,15 @@ describe QueueItemsController do
   describe 'GET index' do
     it 'sets @queue_items to the queue items of the logged in user' do
       alice = Fabricate(:user)
-      session[:user_id] = alice.id
+      set_current_user(alice)
       queue_item1 = Fabricate(:queue_item, user: alice)
       queue_item2 = Fabricate(:queue_item, user: alice)
       get :index
       assigns(:queue_items).should match_array([queue_item1,queue_item2])
     end
 
-    it 'redirects to the sign in page for unautheticated users' do
-      get :index
-      response.should redirect_to sign_in_path
+    it_behaves_like 'requires sign in' do
+      let(:action) { get :index }
     end
   end
 
@@ -22,7 +21,7 @@ describe QueueItemsController do
     context 'for authenticated users' do
 
       let(:alice) { Fabricate(:user) }
-      before { session[:user_id] = alice.id }
+      before { set_current_user(alice) }
 
       it 'redirects to the my queue page' do
         video = Fabricate(:video)
@@ -62,9 +61,8 @@ describe QueueItemsController do
     end
 
     context 'for unauthenticated users' do
-      it 'redirects unauthenticated users to the sign in page' do
-        post :create, video_id: 3
-        response.should redirect_to sign_in_path
+      it_behaves_like 'requires sign in' do
+        let(:action) { post :create, video_id: 3 }
       end
     end
   end
@@ -100,9 +98,8 @@ describe QueueItemsController do
     end
 
     context 'for unauthenticated users' do
-      it 'redirects to the sign in page if the user is unauthenticated' do
-        post :destroy, id: 3
-        response.should redirect_to sign_in_path
+      it_behaves_like 'requires sign in' do
+        let(:action) { post :destroy, id: 3 }
       end
     end
   end
@@ -157,9 +154,8 @@ describe QueueItemsController do
     end
 
     context 'with unauthenticated user' do
-      it 'redirects to the sign in path' do
-        post :update_queue, queue_items: [{id: 1, position: 3},{id: 2, position: 2}]
-        response.should redirect_to sign_in_path
+      it_behaves_like 'requires sign in' do
+        let(:action) { post :update_queue, queue_items: [{id: 1, position: 3},{id: 2, position: 2}] }
       end
 
     end
