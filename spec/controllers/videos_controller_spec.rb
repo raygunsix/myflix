@@ -6,22 +6,21 @@ describe VideosController do
     let(:video) { Fabricate(:video) }
 
     it 'sets the @video instance variable for authenticated users' do
-      session[:user_id] = Fabricate(:user).id
+      set_current_user
       get :show, id: video.id
       assigns(:video).should == video
     end
 
     it 'sets the @reviews instance variable for authenticated users' do
-      session[:user_id] = Fabricate(:user).id
+      set_current_user
       review1 = Fabricate(:review, video: video)
       review2 = Fabricate(:review, video: video)
       get :show, id: video.id
       assigns(:reviews).should =~ [review1, review2]
     end
 
-    it 'redirects to the sign in page for unauthenticated users' do
-      get :show, id: video.id
-      response.should redirect_to sign_in_path
+    it_behaves_like 'requires sign in' do
+      let(:action) { get :show, id: video.id }
     end
   end
 
@@ -34,9 +33,8 @@ describe VideosController do
       assigns(:results).should include video
     end
 
-    it 'redirects to the sign in page for unauthenticated users' do
-      get :search, search_term: video.title
-      response.should redirect_to sign_in_path
+    it_behaves_like 'requires sign in' do
+      let(:action) { get :search, search_term: video.title }
     end
   end
 
