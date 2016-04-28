@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(post_params)
     if @user.save
+      AppMailer.send_welcome_email(@user).deliver
       flash[:notice] = 'You have successfully regsitered!'
       redirect_to sign_in_path
     else
