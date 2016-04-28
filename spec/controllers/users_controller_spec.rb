@@ -36,6 +36,25 @@ describe UsersController do
         response.should render_template :new
       end
     end
+
+    context 'sending email' do
+
+      after { ActionMailer::Base.deliveries.clear }
+
+      it 'sends email to the user with valid inputs' do
+        post :create, user: { email: 'bob@example.com', password: 'password', full_name: 'Bob Smith' }
+        ActionMailer::Base.deliveries.last.to.should == ['bob@example.com']
+      end
+      it 'sends email containing the users name with valid inputs' do
+        post :create, user: { email: 'bob@example.com', password: 'password', full_name: 'Bob Smith' }
+        ActionMailer::Base.deliveries.last.body.should include('Bob Smith')
+      end
+      it 'does not send email with invalid inputs' do
+        post :create, user: { email: 'bob@xample.com' }
+        ActionMailer::Base.deliveries.should be_empty
+      end
+    end
+
   end
 
   describe 'GET show' do
