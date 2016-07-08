@@ -24,5 +24,7 @@ feature 'User resets password' do
     click_button 'Sign In'
 
     page.should have_content "Welcome, #{alice.full_name}"
+
+    clear_email
   end
 end

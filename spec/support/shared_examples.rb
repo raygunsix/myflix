@@ -13,3 +13,9 @@ shared_examples "requires admin" do
     expect(response).to redirect_to home_path
   end
 end
+
+shared_examples "tokenable" do
+  it "generates a random token upon create" do
+    object.token.should be_present
+  end
+end
