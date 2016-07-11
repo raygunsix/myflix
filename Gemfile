@@ -11,6 +11,8 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier'
 gem 'jquery-rails'
 gem 'pg'
+gem 'carrierwave'
+gem 'mini_magick'
 
 group :development do
   gem 'thin'
