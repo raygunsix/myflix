@@ -9,6 +9,20 @@ class UsersController < ApplicationController
     @user = User.new(post_params)
     if @user.save
       handle_invitation
+      Stripe.api_key = ENV['STRIPE_API_KEY']
+      if params[:stripeToken]
+        begin
+          @amount = 999
+          charge = Stripe::Charge.create(
+            :source      => params[:stripeToken],
+            :amount      => @amount,
+            :description => 'MyFlix sign up charge',
+            :currency    => 'usd'
+          )
+        rescue Stripe::CardError => e
+          flash[:error] = e.message
+        end
+      end
       AppMailer.send_welcome_email(@user).deliver
       flash[:notice] = 'You have successfully regsitered!'
       redirect_to sign_in_path
