@@ -13,13 +13,13 @@ class UsersController < ApplicationController
       if params[:stripeToken]
         begin
           @amount = 999
-          charge = Stripe::Charge.create(
+          charge = StripeWrapper::Charge.create(
             :source      => params[:stripeToken],
             :amount      => @amount,
             :description => 'MyFlix sign up charge',
             :currency    => 'usd'
           )
-        rescue Stripe::CardError => e
+        rescue StripeWrapper::CardError => e
           flash[:error] = e.message
         end
       end
